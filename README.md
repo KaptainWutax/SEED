@@ -10,13 +10,13 @@ The first thing you should do is create a new project in a folder by doing `grad
 Then you add those lines in your build.gradle:
 
 ```groovy
-	repositories {
-		mavenCentral()
-		maven {
-			url "https://jitpack.io"
-		}
+repositories {
+	mavenCentral()
+	maven {
+		url "https://jitpack.io"
 	}
-	dependencies {
-		implementation 'com.github.KaptainWutax:SEED:c540b5224dbb4dc80fe8a25bfcfcf9383f635a0c'
-	}
+}
+dependencies {
+	implementation 'com.github.KaptainWutax:SEED:c540b5224dbb4dc80fe8a25bfcfcf9383f635a0c'
+}
 ```
