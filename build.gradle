@@ -10,10 +10,9 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile('com.github.KaptainWutax:MathUtils:6c2d50eacad0241ff76119e6e703b70bac4b4bce') {transitive = false}
-    compile('com.github.KaptainWutax:SeedUtils:0de70bc772fef95d8acfa6991e7278ee53a8b46c') {transitive = false}
-    compile('com.github.KaptainWutax:FeatureUtils:25f73f26289a65a314cd66badc3c433d7f8c37b0') {transitive = false}
-    compile('com.github.KaptainWutax:BiomeUtils:590f697a2ccb6c6bdba8e2fea891a25ace75c947') {transitive = false}
+    compile('com.github.KaptainWutax:SeedUtils:4d1715417dd6957e42ee1b1a5c43cf22e10c6df3') {transitive = false}
+    compile('com.github.KaptainWutax:FeatureUtils:20252b3e97443175e1de33d44cc602b151fb70f4') {transitive = false}
+    compile('com.github.KaptainWutax:BiomeUtils:e7a9489cd6dec10ff06b7cf70a297f40c223d94a') {transitive = false}
     compile('com.github.KaptainWutax:ChunkRandomReversal:209eefb8ed2bd097e3c55d3934ba508b664443da') {transitive = false}
     compile('com.github.KaptainWutax:LattiCG:38f0b3d33e15ad2e6ce9ddb1f588e2b9a8c96174') {transitive = false}
 }
-//53087187671693
