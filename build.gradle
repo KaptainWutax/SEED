@@ -9,10 +9,10 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile('com.github.KaptainWutax:MathUtils:b4d89b26f2e8681031f066ecd1448662dbc2d5ba') {transitive = false}
-    compile('com.github.KaptainWutax:SeedUtils:de0e72fab2949d82ad12eef3c22cfb67992c6432') {transitive = false}
-    compile('com.github.KaptainWutax:FeatureUtils:0bd98a8dd892ff8d7292bcf5545f79a91a5eecca') {transitive = false}
-    compile('com.github.KaptainWutax:BiomeUtils:ea8ac9a6ca6dec4ba4d5aef50e8e337d26877699') {transitive = false}
-    compile('com.github.KaptainWutax:ChunkRandomReversal:209eefb8ed2bd097e3c55d3934ba508b664443da') {transitive = false}
-    compile('com.github.KaptainWutax:LattiCG:38f0b3d33e15ad2e6ce9ddb1f588e2b9a8c96174') {transitive = false}
+    compile('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') {transitive = false}
+    compile('com.github.KaptainWutax:SeedUtils:42cbf8558f981862a0926a09f84da24bdc4f897d') {transitive = false}
+    compile('com.github.KaptainWutax:FeatureUtils:7612374f09b53c44dbbfbf5c1890b76f88ca03e7') {transitive = false}
+    compile('com.github.KaptainWutax:BiomeUtils:b5decec410e7bbc4b21053a1d6f10600064cc447') {transitive = false}
+    compile('com.github.KaptainWutax:ChunkRandomReversal:8174cd55b8ee492b54fbc860fbafc83726bac846') {transitive = false}
+    compile('com.github.KaptainWutax:LattiCG:cc39ed32419881bd4dc080ac77b7a5c72a3fd36d') {transitive = false}
 }
