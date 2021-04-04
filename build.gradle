@@ -11,8 +11,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') {transitive = false}
     compile('com.github.KaptainWutax:SeedUtils:40b5cc6f369afb0a10dd735f5bc3342fd338c4e3') {transitive = false}
-    compile('com.github.KaptainWutax:FeatureUtils:299b79fe2e785196cba2aef060c746990a75d3c2') {transitive = false}
-    compile('com.github.KaptainWutax:TerrainUtils:75d2f5ec84e9805ac17706cceaa7655768a5fef8') {transitive = false}
+    compile('com.github.KaptainWutax:FeatureUtils:0c47a63adf') {transitive = false}
+    compile('com.github.KaptainWutax:TerrainUtils:75d2f5ec84') {transitive = false}
     compile('com.github.KaptainWutax:NoiseUtils:5919e438dc1cda50bf8e2ba0a99b4618349ac085') {transitive = false}
     compile('com.github.KaptainWutax:BiomeUtils:c26546f9ba5d2bc50f2d4ed4c1e5e4ccf2348b36') {transitive = false}
     compile('com.github.KaptainWutax:ChunkRandomReversal:8174cd55b8ee492b54fbc860fbafc83726bac846') {transitive = false}
