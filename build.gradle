@@ -19,5 +19,5 @@ dependencies {
     compile('com.github.KaptainWutax:FeatureUtils:ff97b44038b0410cef83cd813b4569ef4a5e4d03') {transitive = false}
 
     compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') {transitive = false}
-    compile('com.github.KaptainWutax:LattiCG:821aa45e10af7d1bdf25acd9c27253d31821ab21') {transitive = false}
+    compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') {transitive = false}
 }
