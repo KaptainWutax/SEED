@@ -1,6 +1,15 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+    id "idea"
+    id "jacoco"
+    id 'org.jetbrains.kotlin.jvm' version '1.5.0-RC'
 }
+
+group = 'com.seedfinding'
+archivesBaseName = project.name
+
+defaultTasks 'clean', 'test', 'install'
 
 repositories {
     mavenCentral()
@@ -20,4 +29,103 @@ dependencies {
 
     compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') {transitive = false}
     compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') {transitive = false}
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+compileJava {
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+
+test {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+        maxHeapSize = "1G"
+    }
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        outputs.upToDateWhen { false }
+        showStandardStreams = true
+        showExceptions true
+        showCauses true
+        showStackTraces true
+    }
+    finalizedBy(jacocoTestReport)
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "$project.name"
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = "$project.name"
+                description = 'A library that have collect all Utils libraries used for seed finding/cracking.'
+                url = 'http://www.kaptainwutax.seedfinding.com'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'hube12'
+                        name = 'Neil'
+                    }
+                    developer {
+                        id = 'Kap'
+                        name = 'KaptainWutax'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/kaptainwutax/SEED.git'
+                    url = 'https://github.com/kaptainwutax/SEED.git'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://jitpack.io/com/github/kaptainwutax/seed/latest"
+            def snapshotsRepoUrl = "https://jitpack.io/com/github/kaptainwutax/seed/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+jar {
+    from {
+         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
