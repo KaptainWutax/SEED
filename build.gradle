@@ -18,14 +18,14 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') {transitive = false}
-    compile('com.github.KaptainWutax:SeedUtils:b6a383113ce5d8d09a59e91b28ff064fb97c0709') {transitive = false}
-    compile('com.github.KaptainWutax:MCUtils:13009755237551c6148cdbda87e8d924c5bfc1ef') {transitive = false}
-    compile('com.github.KaptainWutax:NoiseUtils:7fe1d2e0ef92c7cf9f09744d0c0ed7a9302cd1ef') {transitive = false}
+    compile('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') { transitive = false }
+    compile('com.github.KaptainWutax:SeedUtils:b6a383113ce5d8d09a59e91b28ff064fb97c0709') { transitive = false }
+    compile('com.github.KaptainWutax:MCUtils:131e865ad577d1e572cd4878b569b65c166f8e30') { transitive = false }
+    compile('com.github.KaptainWutax:NoiseUtils:5c1373c9c56e280163a49a34d18290971f6e16ea') { transitive = false }
 
-	compile('com.github.KaptainWutax:BiomeUtils:1038ccf76eb8033baa67da85ca305f91fe08f564') {transitive = false}
-    compile('com.github.KaptainWutax:TerrainUtils:1abc394f4f1375b35fbe1aa089d7de92627fa448') {transitive = false}
-    compile('com.github.KaptainWutax:FeatureUtils:778372168e5a187c343f6864363e0e5c9a4c172d') {transitive = false}
+    compile('com.github.KaptainWutax:BiomeUtils:280f8b165c4c6a048f6c7cf4b0a6cc5d60ec5499') {transitive = false}
+    compile('com.github.KaptainWutax:TerrainUtils:a61decfc9189958bc76273cf0d97bff17a2267d9') { transitive = false }
+    compile('com.github.KaptainWutax:FeatureUtils:dbe7b3ac10570d42c083edad86c2ad7edb60a474') {transitive = false}
 
     compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') {transitive = false}
     compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') {transitive = false}
