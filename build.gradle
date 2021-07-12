@@ -13,22 +13,22 @@ defaultTasks 'clean', 'test', 'install'
 
 repositories {
     mavenCentral()
-    maven {url "https://jitpack.io"}
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') { transitive = false }
     compile('com.github.KaptainWutax:SeedUtils:b6a383113ce5d8d09a59e91b28ff064fb97c0709') { transitive = false }
-    compile('com.github.KaptainWutax:MCUtils:131e865ad577d1e572cd4878b569b65c166f8e30') { transitive = false }
-    compile('com.github.KaptainWutax:NoiseUtils:5c1373c9c56e280163a49a34d18290971f6e16ea') { transitive = false }
+    compile('com.github.KaptainWutax:MCUtils:b9f7d97930d7f1c588382f3c7db0585c1f4146f9') { transitive = false }
+    compile('com.github.KaptainWutax:NoiseUtils:49d64c336a099086c627d2391760134ebd81292f') { transitive = false }
 
-    compile('com.github.KaptainWutax:BiomeUtils:280f8b165c4c6a048f6c7cf4b0a6cc5d60ec5499') {transitive = false}
-    compile('com.github.KaptainWutax:TerrainUtils:a61decfc9189958bc76273cf0d97bff17a2267d9') { transitive = false }
-    compile('com.github.KaptainWutax:FeatureUtils:dbe7b3ac10570d42c083edad86c2ad7edb60a474') {transitive = false}
+    compile('com.github.KaptainWutax:BiomeUtils:c0aa2f0e4974c2b4bc23e38f2ce503983ce4564d') { transitive = false }
+    compile('com.github.KaptainWutax:TerrainUtils:99a9f16a426a69f004bd054d7b48de47886429c5') { transitive = false }
+    compile('com.github.KaptainWutax:FeatureUtils:4e10893335378b168493630617a4bd701770dcbb') { transitive = false }
 
-    compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') {transitive = false}
-    compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') {transitive = false}
+    compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') { transitive = false }
+    compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') { transitive = false }
 }
 
 java {
@@ -126,6 +126,6 @@ javadoc {
 
 jar {
     from {
-         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
