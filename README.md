@@ -17,6 +17,6 @@ repositories {
 	}
 }
 dependencies {
-	implementation 'com.github.KaptainWutax:SEED:master-SNAPSHOT'
+	implementation 'com.github.hube12:SEED:master-SNAPSHOT'
 }
 ```
