@@ -25,7 +25,7 @@ dependencies {
 
     compile('com.github.KaptainWutax:BiomeUtils:c0aa2f0e4974c2b4bc23e38f2ce503983ce4564d') { transitive = false }
     compile('com.github.KaptainWutax:TerrainUtils:5e0c4033bb97b5d5d6849fffe826fc32f05ec116') { transitive = false }
-    compile('com.github.KaptainWutax:FeatureUtils:0ad1cff9c95ff7f5c12df45367059ab9c08b700c') { transitive = false }
+    compile('com.github.KaptainWutax:FeatureUtils:993693c27a1d4b9c417746119952d1b1bc4ba81b') { transitive = false }
 
     compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') { transitive = false }
     compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') { transitive = false }
