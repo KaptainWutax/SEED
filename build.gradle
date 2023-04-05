@@ -18,17 +18,18 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-	compile('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') { transitive = false }
-	compile('com.github.KaptainWutax:SeedUtils:b6a383113ce5d8d09a59e91b28ff064fb97c0709') { transitive = false }
-	compile('com.github.KaptainWutax:MCUtils:1e5785a648a04454461ef02ee27cbc63e3599bff') { transitive = false }
-	compile('com.github.KaptainWutax:NoiseUtils:2cf64e1d2e7e674fbf5b7247f16e8dc56ae2a31c') { transitive = false }
-	
-	compile('com.github.KaptainWutax:BiomeUtils:b2065a0281342f269af31da9ef7349ffdc337534') {transitive = false}
-	compile('com.github.KaptainWutax:TerrainUtils:605c46b94a5126df55bd347b82f277af443909c9') { transitive = false }
-    compile('com.github.KaptainWutax:FeatureUtils:58bf7a94026ffc5c691605c953ef0b25a26ca471') { transitive = false }
+    implementation('com.seedfinding:mc_math:1.171.0') { transitive = false }
+    implementation('com.seedfinding:mc_seed:1.171.1') { transitive = false }
+    implementation('com.seedfinding:mc_core:1.192.1') { transitive = false }
+    implementation('com.seedfinding:mc_noise:1.171.1') { transitive = false }
 
-    compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') { transitive = false }
-    compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') { transitive = false }
+    implementation('com.seedfinding:mc_biome:1.171.1') { transitive = false }
+    implementation('com.seedfinding:mc_terrain:1.171.1') { transitive = false }
+    implementation('com.seedfinding:mc_feature:1.171.1') { transitive = false }
+
+
+    implementation('com.seedfinding:mc_reversal:1.171.1') { transitive = false }
+    implementation('com.seedfinding:latticg:1.06')
 }
 
 java {
