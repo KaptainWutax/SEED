@@ -1,4 +1,4 @@
-package kaptainwutax.seed;
+package seedfinding.seed;
 
 public class SEED {
     
