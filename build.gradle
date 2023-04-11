@@ -1,23 +1,141 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+    id "idea"
+    id "jacoco"
+    id 'org.jetbrains.kotlin.jvm' version '1.8.20'
 }
+
+group = 'com.seedfinding'
+archivesBaseName = project.name
+
+defaultTasks 'clean', 'test', 'install'
 
 repositories {
     mavenCentral()
-    maven {url "https://jitpack.io"}
+    maven {
+        url "https://maven.seedfinding.com/"
+    }
+    maven {
+        url "https://maven-snapshots.seedfinding.com/"
+    }
+    maven {
+        url "https://maven.latticg.com/"
+    }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile('com.github.KaptainWutax:MathUtils:5531c4a87b0f1bb85d1dab2bdd18ce375400626a') {transitive = false}
-    compile('com.github.KaptainWutax:SeedUtils:b6a383113ce5d8d09a59e91b28ff064fb97c0709') {transitive = false}
-    compile('com.github.KaptainWutax:NoiseUtils:288e1b60e0f427bead80f001d19565ad1adcbd73') {transitive = false}
-    compile('com.github.KaptainWutax:MCUtils:13009755237551c6148cdbda87e8d924c5bfc1ef') {transitive = false}
+    implementation('com.seedfinding:mc_math:1.171.0') { transitive = false }
+    implementation('com.seedfinding:mc_seed:1.171.2') { transitive = false }
+    implementation('com.seedfinding:mc_core:1.194.0') { transitive = false }
+    implementation('com.seedfinding:mc_noise:1.171.1') { transitive = false }
 
-	compile('com.github.KaptainWutax:BiomeUtils:5785ce65ffe54d63e0d246769c676c73d7988c4a') {transitive = false}
-    compile('com.github.KaptainWutax:TerrainUtils:322c2405600be7e87ded65f7bc6f2c4f042a5472') {transitive = false}
-    compile('com.github.KaptainWutax:FeatureUtils:ff97b44038b0410cef83cd813b4569ef4a5e4d03') {transitive = false}
+    implementation('com.seedfinding:mc_biome:1.171.1') { transitive = false }
+    implementation('com.seedfinding:mc_terrain:1.171.1') { transitive = false }
+    implementation('com.seedfinding:mc_feature:1.171.5') { transitive = false }
 
-    compile('com.github.KaptainWutax:ChunkRandomReversal:6b76fb5cf2cd438de56e6a46cea2a83985831834') {transitive = false}
-    compile('com.github.KaptainWutax:LattiCG:ec805b20bda95ead23216ab249a5ef5b8587e9e9') {transitive = false}
+
+    implementation('com.seedfinding:mc_reversal:1.171.1') { transitive = false }
+    implementation('com.seedfinding:latticg:1.06') { transitive = false }
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+compileJava {
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+
+test {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+        maxHeapSize = "1G"
+    }
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        outputs.upToDateWhen { false }
+        showStandardStreams = true
+        showExceptions true
+        showCauses true
+        showStackTraces true
+    }
+    finalizedBy(jacocoTestReport)
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "$project.name"
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = "$project.name"
+                description = 'A library that have collect all Utils libraries used for seed finding/cracking.'
+                url = 'http://www.kaptainwutax.seedfinding.com'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'hube12'
+                        name = 'Neil'
+                    }
+                    developer {
+                        id = 'Kap'
+                        name = 'KaptainWutax'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/kaptainwutax/SEED.git'
+                    url = 'https://github.com/kaptainwutax/SEED.git'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://jitpack.io/com/github/kaptainwutax/seed/latest"
+            def snapshotsRepoUrl = "https://jitpack.io/com/github/kaptainwutax/seed/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
